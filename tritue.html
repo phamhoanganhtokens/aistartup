@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Tích Trí Tuệ Toàn Diện</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a2a6c',
+                        accent: '#b21f1f',
+                        gold: '#c5a059',
+                        cream: '#fdfcf8',
+                        charcoal: '#2d3436',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #fdfcf8;
+            color: #2d3436;
+            line-height: 1.8;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 42, 108, 0.1);
+        }
+        .custom-bullet {
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .custom-bullet::before {
+            content: "♦";
+            position: absolute;
+            left: 0;
+            color: #c5a059;
+        }
+        .circle-bullet {
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .circle-bullet::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #b21f1f;
+            font-weight: bold;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; translateY: 20px; }
+            to { opacity: 1; translateY: 0; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        
+        <!-- Header -->
+        <header class="text-center mb-20 animate-fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold text-primary mb-6 leading-tight uppercase tracking-wide">
+                Lộ Trình Tái Cấu Trúc Cuộc Đời Theo Hệ Tư Duy Trí Tuệ Toàn Diện
+            </h1>
+            <div class="w-24 h-1 bg-gold mx-auto mb-8"></div>
+            <p class="text-xl md:text-2xl text-charcoal italic max-w-2xl mx-auto leading-relaxed">
+                Khám phá bản ngã, kiến tạo tương lai thông qua sự giao thoa giữa tư duy hệ thống và chiều sâu tâm hồn.
+            </p>
+        </header>
+
+        <!-- Section 1: Problem Analysis -->
+        <section class="mb-20">
+            <div class="flex items-center mb-8">
+                <span class="text-accent text-3xl font-bold mr-4">I.</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-accent uppercase tracking-wider">
+                    Phân Tích Vấn Đề Dựa Trên 4 Trụ Cột
+                </h2>
+            </div>
+            
+            <div class="glass-card p-8 md:p-10 rounded-xl mb-8">
+                <p class="justified-text mb-8 text-lg">
+                    Hành trình thay đổi cuộc đời trong 12 tháng tới không chỉ là sự nỗ lực đơn thuần, mà là một cuộc cách mạng về cấu trúc tư duy. Chúng ta chuyển dịch trọng tâm từ việc phản ứng với các yếu tố <strong>ngoại lực</strong> sang việc làm chủ sức mạnh <strong>nội tại</strong>, dựa trên nền tảng của Trí Tuệ Toàn Diện.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <ul class="space-y-4">
+                            <li class="custom-bullet justified-text">
+                                <strong class="text-primary">Tam Thức và Cân Bằng:</strong> Tập trung vào việc khai mở <strong>tâm thức</strong> và duy trì trạng thái <strong>tỉnh thức</strong>. Đây là chìa khóa để giữ vững sự <strong>cân bằng</strong> giữa áp lực công việc và sự bình an nội tại.
+                            </li>
+                            <li class="custom-bullet justified-text">
+                                <strong class="text-primary">Hệ Thống và Hiểu Bản Thân:</strong> Xây dựng một <strong>hệ thống thói quen</strong> vững chắc dựa trên việc <strong>hiểu sâu sắc bản thân</strong>. Biết rõ điểm mạnh và giá trị cốt lõi để thiết lập một "hệ điều hành" cá nhân tối ưu.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <ul class="space-y-4">
+                            <li class="custom-bullet justified-text">
+                                <strong class="text-primary">Gu Thẩm Mỹ và Tầm Nhìn:</strong> Mở rộng <strong>tầm nhìn</strong> chiến lược để thiết lập mục tiêu dài hạn, kết hợp với <strong>gu thẩm mỹ</strong> tinh tế để nâng tầm chất lượng sống, tạo nên bản sắc văn hóa riêng biệt.
+                            </li>
+                            <li class="custom-bullet justified-text">
+                                <strong class="text-primary">Công Cụ Hỗ Trợ:</strong> Tận dụng triệt để các <strong>đòn bẩy hiệu suất</strong>, làm chủ <strong>công nghệ mới</strong> và xây dựng các <strong>mối quan hệ chiến lược</strong> để tiến xa hơn với nguồn lực tối thiểu.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Conclusion -->
+        <section class="mb-20">
+            <div class="flex items-center mb-8">
+                <span class="text-accent text-3xl font-bold mr-4">II.</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-accent uppercase tracking-wider">
+                    Kết Luận Cốt Lõi và Bài Học Sâu Sắc
+                </h2>
+            </div>
+            <div class="border-l-4 border-gold pl-8 py-4 bg-white/50 rounded-r-xl">
+                <p class="justified-text text-lg mb-6">
+                    Thay đổi cuộc đời thực chất là quá trình <strong>nâng cấp hệ sinh thái cá nhân</strong>. Khi hệ sinh thái này đủ mạnh mẽ và đồng bộ, thành công sẽ đến như một hệ quả tất yếu.
+                </p>
+                <div class="bg-primary text-white p-6 rounded-lg shadow-xl italic text-xl text-center">
+                    "Thành công không phải là những gì bạn cố gắng chiếm hữu, mà là con người bạn sẽ trở thành khi sở hữu một hệ tư duy toàn diện."
+                </div>
+                <p class="justified-text mt-6 text-lg">
+                    Sự chuyển biến thực sự bắt đầu khi chúng ta ngừng <strong>phản ứng</strong> với thực tại và bắt đầu chủ động <strong>kiến tạo</strong> nó thông qua một cấu trúc tư duy minh triết.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 3: Action Roadmap -->
+        <section class="mb-20">
+            <div class="flex items-center mb-8">
+                <span class="text-accent text-3xl font-bold mr-4">III.</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-accent uppercase tracking-wider">
+                    Lộ Trình Hành Động Cụ Thể
+                </h2>
+            </div>
+
+            <!-- Phase Timeline -->
+            <div class="space-y-12">
+                <!-- Phase 1 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gold/30"></div>
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary">Giai đoạn 1: Khai phá và Thiết lập</h3>
+                            <span class="text-gold font-bold">(Tháng 1 - Tháng 3)</span>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-gold z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <ul class="space-y-2">
+                                <li class="circle-bullet justified-text">Kiểm toán cá nhân để nhận diện các "món nợ" tư duy cũ.</li>
+                                <li class="circle-bullet justified-text">Thấu hiểu bản thân qua nhật ký phản chiếu và các công cụ đánh giá.</li>
+                                <li class="circle-bullet justified-text">Thiết lập không gian sống tối giản và quy trình làm việc khoa học.</li>
+                                <li class="circle-bullet justified-text">Rèn luyện Tam thức qua thiền định hoặc vận động buổi sáng.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 md:order-1">
+                            <ul class="space-y-2">
+                                <li class="circle-bullet md:list-none md:pr-6 justified-text">Mở rộng tầm nhìn: Đọc tối thiểu 3 cuốn sách chuyên sâu mỗi tháng.</li>
+                                <li class="circle-bullet md:list-none md:pr-6 justified-text">Tiếp cận các giá trị nghệ thuật để bồi đắp gu thẩm mỹ.</li>
+                                <li class="circle-bullet md:list-none md:pr-6 justified-text">Tối ưu hóa công cụ: Làm chủ Notion, Obsidian và ứng dụng AI.</li>
+                            </ul>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-accent z-10"></div>
+                        <div class="md:w-1/2 md:pl-12 md:order-2">
+                            <h3 class="text-xl font-bold text-primary">Giai đoạn 2: Nâng cấp và Tăng tốc</h3>
+                            <span class="text-gold font-bold">(Tháng 4 - Tháng 6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary">Giai đoạn 3: Thực thi và Khẳng định</h3>
+                            <span class="text-gold font-bold">(Tháng 7 - Tháng 9)</span>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-gold z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <ul class="space-y-2">
+                                <li class="circle-bullet justified-text">Triển khai "Dự án đột phá" tạo giá trị thực chất cho cộng đồng.</li>
+                                <li class="circle-bullet justified-text">Xây dựng mạng lưới kết nối với những người cùng hệ tư duy.</li>
+                                <li class="circle-bullet justified-text">Khẳng định vị thế cá nhân thông qua kết quả thực tiễn.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 md:order-1">
+                            <ul class="space-y-2">
+                                <li class="circle-bullet md:list-none md:pr-6 justified-text">Đánh giá định kỳ và tinh chỉnh hệ thống vận hành.</li>
+                                <li class="circle-bullet md:list-none md:pr-6 justified-text">Loại bỏ những yếu tố không còn phù hợp với tầm nhìn mới.</li>
+                                <li class="circle-bullet md:list-none md:pr-6 justified-text">Cố định phong cách sống mới với sự tự tin và cân bằng.</li>
+                            </ul>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-accent z-10"></div>
+                        <div class="md:w-1/2 md:pl-12 md:order-2">
+                            <h3 class="text-xl font-bold text-primary">Giai đoạn 4: Tinh chỉnh và Duy trì</h3>
+                            <span class="text-gold font-bold">(Tháng 10 - Tháng 12)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Quote -->
+        <div class="text-center my-20 animate-pulse">
+            <p class="text-2xl text-primary italic font-serif leading-relaxed px-4">
+                "Sự thay đổi vĩ đại nhất không nằm ở những gì bạn làm được,<br class="hidden md:block"> mà ở cách bạn nhìn nhận thế giới qua lăng kính của trí tuệ toàn diện."
+            </p>
+        </div>
+
+        <!-- Infographic Suggestion Box -->
+        <aside class="bg-gray-50 border-2 border-dashed border-gold/40 p-8 rounded-2xl shadow-inner mb-12">
+            <h4 class="text-xl font-bold text-accent text-center uppercase mb-6 tracking-widest">
+                Gợi Ý Mô Tả Sơ Đồ Tư Duy (Mind Map)
+            </h4>
+            <div class="max-w-2xl mx-auto">
+                <p class="justified-text mb-6">
+                    Mô hình trực quan được thiết kế theo cấu trúc <strong>Kim cương trung tâm + 4 Vệ tinh</strong>. Hình thoi trung tâm mang dòng chữ <span class="text-gold font-bold">"BẢN THỂ TOÀN DIỆN"</span> với hiệu ứng ánh kim rực rỡ, kết nối với các vệ tinh xung quanh:
+                </p>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-3">🌱</span>
+                        <div>
+                            <strong class="text-primary block">Vệ tinh phía Bắc (Tâm Thức)</strong>
+                            <p class="text-sm">Biểu tượng hạt mầm đang nảy mầm: Sự thức tỉnh và cân bằng nội tại.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-3">⚙️</span>
+                        <div>
+                            <strong class="text-primary block">Vệ tinh phía Nam (Hệ Thống)</strong>
+                            <p class="text-sm">Biểu tượng mắt xích đồng hồ: Kỷ luật, hệ thống và thấu hiểu bản thân.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-3">🗼</span>
+                        <div>
+                            <strong class="text-primary block">Vệ tinh phía Đông (Tầm Nhìn)</strong>
+                            <p class="text-sm">Biểu tượng ngọn hải đăng: Tầm nhìn xa và gu thẩm mỹ cao quý.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-3">🔑</span>
+                        <div>
+                            <strong class="text-primary block">Vệ tinh phía Tây (Công Cụ)</strong>
+                            <p class="text-sm">Biểu tượng chìa khóa đa năng: Công cụ hỗ trợ và đòn bẩy công nghệ.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="text-center border-t border-gray-200 pt-4">
+                    <p class="text-sm italic text-gray-500">
+                        Phối màu gợi ý: <span class="text-[#002366] font-semibold">Xanh hoàng gia (Royal Blue)</span> cho sự bền vững & <span class="text-[#F1D299] font-semibold">Vàng cát (Champagne Gold)</span> cho sự thịnh vượng.
+                    </p>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+</body>
+</html>
+
