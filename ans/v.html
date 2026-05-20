@@ -3,35 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Startup</title>
+    <title>Phân Tích Trí Tuệ Toàn Diện</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 
         :root {
-            --primary-navy: #0F172A;
-            --accent-gold: #B59458;
-            --accent-gold-light: #D4AF37;
-            --bg-parchment: #FDFDFB;
-            --text-dark: #1E293B;
-            --border-light: #E2E8F0;
+            --primary-bg: #fdfcf8; /* Light Cream */
+            --text-main: #2d2d2d; /* Deep Charcoal */
+            --accent-gold: #b08d57; /* Muted Gold */
+            --accent-bronze: #8e5d3f; /* Warm Bronze */
+            --border-color: #e5e0d5;
         }
 
         body {
-            font-family: 'Times New Roman', serif;
-            background-color: var(--bg-parchment);
-            color: var(--text-dark);
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
             line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
         }
 
-        .header-title {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .justified-text {
+        .justify-text {
             text-align: justify;
             text-justify: inter-word;
         }
@@ -39,301 +33,248 @@
         .section-divider {
             height: 1px;
             background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
-            margin: 4rem 0;
-            opacity: 0.5;
+            margin: 3rem 0;
+            border: none;
         }
 
-        .pillar-card {
-            border-left: 3px solid var(--accent-gold);
-            background: white;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .pillar-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        .glass-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(176, 141, 87, 0.05);
         }
 
-        .table-premium th {
-            background-color: var(--primary-navy);
-            color: white;
-            font-weight: 500;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .table-premium td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .step-indicator {
-            width: 32px;
-            height: 32px;
-            background-color: var(--primary-navy);
-            color: var(--accent-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+        h1, h2, h3 {
+            font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
-            font-size: 0.9rem;
-            flex-shrink: 0;
+            color: var(--text-main);
         }
 
-        .gold-link {
+        .accent-text {
             color: var(--accent-gold);
-            text-decoration: none;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .bullet-list li {
             position: relative;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            margin-bottom: 0.75rem;
         }
 
-        .gold-link::after {
-            content: '';
+        .bullet-list li::before {
+            content: "♦";
+            color: var(--accent-gold);
             position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--accent-gold);
-            transition: width 0.3s ease;
+            left: -1.5rem;
         }
 
-        .gold-link:hover::after {
-            width: 100%;
+        .dot-list {
+            list-style: none;
+            padding-left: 1.5rem;
         }
 
-        .quote-box {
-            border-top: 1px solid var(--accent-gold);
-            border-bottom: 1px solid var(--accent-gold);
-            padding: 2rem 0;
-            margin: 4rem 0;
+        .dot-list li {
+            position: relative;
+            margin-bottom: 1rem;
         }
 
-        @media (max-width: 640px) {
-            .mobile-table-scroll {
-                overflow-x: auto;
-            }
+        .dot-list li::before {
+            content: "•";
+            color: var(--accent-bronze);
+            font-size: 1.5rem;
+            position: absolute;
+            left: -1.5rem;
+            top: -0.2rem;
+        }
+
+        .infographic-box {
+            background-color: #f7f3ed;
+            border-left: 4px solid var(--accent-gold);
+            padding: 2rem;
+        }
+
+        /* Responsive constraints */
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
         }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body>
 
-    <div class="max-w-[900px] mx-auto bg-white shadow-2xl p-6 md:p-16 border border-gray-100">
-        
-        <!-- Header -->
-        <header class="text-center mb-16 border-b border-double border-gray-300 pb-12">
-            <div class="mb-6 opacity-80 flex justify-center">
-                <div class="w-12 h-12 border-2 border-slate-800 flex items-center justify-center rotate-45">
-                    <span class="rotate-[-45deg] font-bold text-slate-800">Chuyên Gia</span>
-                </div>
-            </div>
-            <h1 class="header-title text-3xl md:text-5xl font-bold text-slate-900 mb-4">
-                BÁO CÁO PHÂN TÍCH CHIẾN LƯỢC
-            </h1>
-            <p class="text-lg md:text-xl text-slate-600 italic mb-6">
-                Master AI Startup Agent — Hệ sinh thái Phạm Hoàng Anh
-            </p>
-            <div class="flex justify-center items-center space-x-4 text-sm tracking-widest uppercase">
-                <span class="w-12 h-[1px] bg-gold"></span>
-                <a href="https://www.phamhoanganhtokens.com" target="_blank" class="gold-link">www.phamhoanganhtokens.com</a>
-                <span class="w-12 h-[1px] bg-gold"></span>
-            </div>
-        </header>
+    <header class="content-wrapper text-center pb-0">
+        <div class="mb-4 inline-block px-4 py-1 border-y border-stone-300 tracking-widest uppercase text-xs font-bold text-stone-500">
+            Hệ Quy Chiếu Trí Tuệ Toàn Diện
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
+            PHÂN TÍCH CHIẾN LƯỢC:<br>
+            <span class="accent-text">KHỞI NGHIỆP TỪ CON SỐ 0</span>
+        </h1>
+        <p class="text-lg italic text-stone-600 max-w-2xl mx-auto justify-text">
+            Khi đối mặt với tình trạng <strong>không có tiền</strong>, sai lầm lớn nhất là tập trung vào việc tìm kiếm nguồn vốn bên ngoài. Thay vào đó, cá nhân cần khai thác <strong>Vốn Nhân Bản</strong> (Human Capital) – tài sản lớn nhất của con người trước khi có tài sản tài chính.
+        </p>
+    </header>
 
-        <!-- Intro Section -->
+    <main class="content-wrapper pt-8">
+
+        <!-- SECTION 1: 4 TRỤ CỘT -->
         <section class="mb-16">
-            <p class="justified-text text-lg leading-relaxed text-slate-700">
-                Chào bạn, với tư cách là <strong class="text-slate-900">Master AI Startup Agent</strong> trong hệ sinh thái <strong>Pham Hoang Anh</strong>, tôi xin gửi đến bạn bản phân tích chiến lược cho câu hỏi: <span class="italic text-slate-900 font-semibold">"Có 1 tỷ nên đầu tư hay khởi nghiệp?"</span>
-            </p>
-            <p class="justified-text mt-6 text-lg leading-relaxed text-slate-700">
-                Số vốn 1 tỷ VNĐ (khoảng $40,000) là một con số "ngưỡng". Nó đủ lớn để tạo ra bước ngoặt nhưng cũng đủ nhỏ để tan biến nếu thiếu một bản đồ tư duy đúng đắn.
-            </p>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Six Pillars Section -->
-        <section class="mb-20">
-            <h2 class="header-title text-2xl font-bold text-slate-900 mb-10 flex items-center">
-                <span class="mr-4 text-yellow-600">⚜️</span> 1. PHÂN TÍCH QUA 6 TRỤ CỘT CHIẾN LƯỢC
+            <h2 class="text-2xl md:text-3xl border-b border-stone-200 pb-2 mb-8 uppercase tracking-wide">
+                1. Phân Tích Chi Tiết Theo 4 Trụ Cột
             </h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Pillar 1 -->
-                <div class="pillar-card p-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Tâm Thức (Consciousness)</h3>
-                    <p class="justified-text text-sm text-slate-600">
-                        Hãy xác định bạn đang ở tầng tâm thức nào. Bạn muốn "làm chủ" vận mệnh (Khởi nghiệp) hay muốn "bảo tồn và nhân bản" thành quả (Đầu tư)? 1 tỷ không phải là số tiền để tiêu xài, mà là <strong>hạt giống</strong>. Nếu tâm thức chưa sẵn sàng cho sự kỷ luật, 1 tỷ sẽ sớm trở về con số 0.
+            <div class="space-y-10">
+                <div class="glass-card p-6">
+                    <h3 class="text-xl mb-3 flex items-center">
+                        <span class="mr-3 text-2xl accent-text">♦</span> Trụ cột 1 - Tam Thức và Cân Bằng
+                    </h3>
+                    <p class="justify-text text-stone-700">
+                        Bước đầu tiên không phải là tìm tiền, mà là chuyển dịch <strong>Tâm Thức</strong> từ trạng thái <strong>Khan hiếm</strong> (Scarcity Mindset) sang <strong>Tạo lập Giá trị</strong> (Value-creation Mindset). Khi tâm trí bị bó hẹp trong câu hỏi "lấy tiền ở đâu", nó sẽ đóng sập các cơ hội. Ngược lại, khi hỏi "tôi có thể trao giá trị gì", tư duy sẽ mở rộng. Sự <strong>Cân bằng</strong> ở đây là giữ vững tinh thần lạc quan và kiên định, không để áp lực tài chính dẫn dắt vào những lối tắt thiếu bền vững.
                     </p>
                 </div>
-                <!-- Pillar 2 -->
-                <div class="pillar-card p-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Hệ Thống (System)</h3>
-                    <p class="justified-text text-sm text-slate-600">
-                        Khởi nghiệp hay đầu tư đều cần quy trình. Nếu khởi nghiệp, bạn phải xây dựng hệ thống tự vận hành để không biến mình thành "khổ chủ". Nếu đầu tư, bạn cần một bộ tiêu chí (Checklist) khắt khe để lọc tài sản.
+
+                <div class="glass-card p-6">
+                    <h3 class="text-xl mb-3 flex items-center">
+                        <span class="mr-3 text-2xl accent-text">♦</span> Trụ cột 2 - Hệ Thống và Hiểu Bản Thân
+                    </h3>
+                    <p class="justify-text text-stone-700">
+                        Kinh doanh khi thiếu vốn đòi hỏi một cuộc <strong>Kiểm toán Bản thân</strong> (Self-audit) khắt khe. Hệ thống của bạn lúc này chính là: Thời gian, Kỹ năng, và Mối quan hệ. Hiểu rõ thế mạnh cốt lõi giúp bạn chọn đúng mô hình khởi nghiệp ít vốn nhưng có khả năng <strong>vận hành tự thân</strong> cao. Bạn chính là "Hệ thống" khởi đầu; do đó, việc tối ưu hóa hiệu suất cá nhân và xây dựng <strong>thương hiệu uy tín</strong> là nền tảng sống còn.
                     </p>
                 </div>
-                <!-- Pillar 3 -->
-                <div class="pillar-card p-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Gu Thẩm Mỹ (Aesthetics)</h3>
-                    <p class="justified-text text-sm text-slate-600">
-                        Trong kỷ nguyên mới, lợi nhuận đến từ sự khác biệt và đẳng cấp. Dù bạn kinh doanh cafe, thời trang hay dịch vụ AI, nếu không có "Gu" và sự tinh tế, bạn sẽ bị cuốn vào cuộc chiến giá rẻ - nơi 1 tỷ sẽ bốc hơi rất nhanh.
+
+                <div class="glass-card p-6">
+                    <h3 class="text-xl mb-3 flex items-center">
+                        <span class="mr-3 text-2xl accent-text">♦</span> Trụ cột 3 - Gu Thẩm Mỹ và Tầm Nhìn
+                    </h3>
+                    <p class="justify-text text-stone-700">
+                        <strong>Gu thẩm mỹ</strong> trong kinh doanh thể hiện qua sự chỉn chu, tinh tế trong cách đóng gói dịch vụ và trải nghiệm khách hàng. Dù khởi nghiệp nhỏ, nhưng nếu sản phẩm có <strong>"gu" riêng</strong> và sự tử tế, bạn sẽ thu hút được tệp khách hàng chất lượng mà không cần quảng cáo rầm rộ. <strong>Tầm nhìn</strong> giúp bạn nhìn xa hơn những khoản lợi nhuận nhỏ trước mắt để xây dựng một <strong>Hệ sinh thái giá trị</strong> bền vững trong tương lai.
                     </p>
                 </div>
-                <!-- Pillar 4 -->
-                <div class="pillar-card p-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Công Cụ (Tools)</h3>
-                    <p class="justified-text text-sm text-slate-600">
-                        Đừng dùng sức người để đấu với máy móc. Hãy tận dụng <strong>AI, Automation và Data</strong> để tối ưu hóa nguồn lực 1 tỷ của bạn. Một startup 1 tỷ biết dùng AI sẽ có sức mạnh tương đương một doanh nghiệp 10 tỷ truyền thống.
-                    </p>
-                </div>
-                <!-- Pillar 5 -->
-                <div class="pillar-card p-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Khởi Nghiệp (Startup)</h3>
-                    <p class="justified-text text-sm text-slate-600">
-                        Đây là quá trình "Xây máy in tiền". 1 tỷ là đủ cho một mô hình <strong>Lean Startup</strong> (Khởi nghiệp tinh gọn) để kiểm chứng thị trường trước khi mở rộng.
-                    </p>
-                </div>
-                <!-- Pillar 6 -->
-                <div class="pillar-card p-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Đầu Tư (Investment)</h3>
-                    <p class="justified-text text-sm text-slate-600">
-                        Đây là quá trình "Mua máy in tiền". Với 1 tỷ, bạn đang tìm kiếm các tài sản có dòng tiền hoặc tiềm năng tăng trưởng (Bất động sản ven đô, Chứng khoán chiến lược, hoặc góp vốn vào các Startup tiềm năng).
+
+                <div class="glass-card p-6">
+                    <h3 class="text-xl mb-3 flex items-center">
+                        <span class="mr-3 text-2xl accent-text">♦</span> Trụ cột 4 - Công Cụ Hỗ Trợ
+                    </h3>
+                    <p class="justify-text text-stone-700">
+                        Tận dụng tối đa các <strong>Công cụ miễn phí</strong> và <strong>Đòn bẩy công nghệ</strong>. Mạng xã hội để xây dựng thương hiệu, AI để tối ưu hóa năng suất, và các nền tảng <strong>Kinh tế chia sẻ</strong> là những "nguồn vốn" vô hình cực lớn. Đừng nhìn vào ví tiền, hãy nhìn vào danh sách các công cụ trong tầm tay để bắt đầu ngay với mô hình <strong>Lean Startup</strong> (Khởi nghiệp tinh gọn).
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Comparison Section -->
-        <section class="mb-20 bg-slate-50 p-8 border border-slate-200">
-            <h2 class="header-title text-2xl font-bold text-slate-900 mb-8 flex items-center">
-                <span class="mr-4 text-yellow-600">⚖️</span> 2. KHỞI NGHIỆP VS. ĐẦU TƯ: ĐỐI CHIẾU
-            </h2>
-            <div class="mobile-table-scroll">
-                <table class="w-full table-premium">
-                    <thead>
-                        <tr>
-                            <th>Tiêu chí</th>
-                            <th>🚀 Khởi nghiệp (Startup)</th>
-                            <th>📊 Đầu tư (Investment)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm">
-                        <tr>
-                            <td class="font-bold">Vai trò</td>
-                            <td>Bạn là người lái tàu.</td>
-                            <td>Bạn là người mua vé tàu.</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Lợi nhuận</td>
-                            <td>Tiềm năng đột phá (X10, X100).</td>
-                            <td>Tăng trưởng bền vững (15-30%/năm).</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Rủi ro</td>
-                            <td>Mất trắng nếu thiếu kỹ năng quản trị.</td>
-                            <td>Sụt giảm giá trị theo chu kỳ thị trường.</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Thời gian</td>
-                            <td>Chiếm dụng 100% tâm trí và thời gian.</td>
-                            <td>Cần thời gian nghiên cứu, nhàn nhã hơn.</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Mục tiêu</td>
-                            <td>Tạo ra <strong>Dòng tiền (Cashflow)</strong>.</td>
-                            <td>Thành công nhờ <strong>Lãi hạt (Compound Interest)</strong>.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        <hr class="section-divider">
 
-        <!-- Lessons Section -->
-        <section class="mb-20">
-            <div class="bg-[#F9F9F9] border-l-4 border-slate-900 p-10">
-                <h2 class="header-title text-2xl font-bold text-slate-900 mb-6 flex items-center">
-                    <span class="mr-4 text-yellow-600">💡</span> 3. BÀI HỌC TRIẾT LÝ CỐT LÕI
-                </h2>
-                <ul class="space-y-6">
-                    <li class="flex items-start">
-                        <span class="text-yellow-600 mr-3 text-xl leading-none">•</span>
-                        <p class="justified-text text-slate-700">
-                            <strong>Tiền chỉ là hệ quả:</strong> Đừng tập trung vào việc làm sao để có thêm tiền, hãy tập trung vào việc <strong>tạo ra giá trị</strong>. Khi giá trị đủ lớn, 1 tỷ sẽ tự nhân bản.
-                        </p>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-yellow-600 mr-3 text-xl leading-none">•</span>
-                        <p class="justified-text text-slate-700">
-                            <strong>Độ trễ của thành công:</strong> Khởi nghiệp cần sự kiên trì, đầu tư cần sự nhẫn nại. Ai vội vàng với 1 tỷ, người đó sẽ mất nó.
-                        </p>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-yellow-600 mr-3 text-xl leading-none">•</span>
-                        <p class="justified-text text-slate-700">
-                            <strong>Tư duy Hệ sinh thái:</strong> Đừng đứng một mình. Hãy xem vốn 1 tỷ của bạn có thể gắn kết vào hệ sinh thái nào để cộng hưởng sức mạnh.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Action Plan -->
+        <!-- SECTION 2: KẾT LUẬN -->
         <section class="mb-16">
-            <h2 class="header-title text-2xl font-bold text-slate-900 mb-10 flex items-center">
-                <span class="mr-4 text-yellow-600">📝</span> 4. LỘ TRÌNH HÀNH ĐỘNG (ACTION PLAN)
+            <h2 class="text-2xl md:text-3xl border-b border-stone-200 pb-2 mb-8 uppercase tracking-wide">
+                2. Kết Luận Cốt Lõi Và Bài Học Sâu Sắc
             </h2>
-            <div class="space-y-8">
-                <div class="flex gap-6 items-start">
-                    <div class="step-indicator">1</div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 uppercase tracking-wider text-sm mb-2">Giai đoạn 1: Định hình (Tuần 1-2)</h4>
-                        <p class="justified-text text-slate-600">Trích 5-10% (50-100 triệu) để <strong>đầu tư vào bản thân</strong> (Kiến thức, Mối quan hệ, Gu thẩm mỹ). Đây là khoản đầu tư lãi nhất.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <div class="step-indicator">2</div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 uppercase tracking-wider text-sm mb-2">Giai đoạn 2: Phân bổ (Tuần 3-4)</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                            <div class="bg-slate-50 p-4 border border-slate-100 italic text-sm">
-                                <span class="font-bold block mb-1 text-slate-800">Phương án An toàn:</span> 70% Đầu tư (Tài sản giá trị), 30% Thủ thỉ khởi nghiệp nhỏ.
-                            </div>
-                            <div class="bg-slate-50 p-4 border border-slate-100 italic text-sm">
-                                <span class="font-bold block mb-1 text-slate-800">Phương án Đột phá:</span> 100% Khởi nghiệp nhưng chia nhỏ theo lộ trình (Dùng 300 triệu test sản phẩm, 700 triệu dự phòng và scale).
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <div class="step-indicator">3</div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 uppercase tracking-wider text-sm mb-2">Giai đoạn 3: Hệ thống hóa (Tháng 2 trở đi)</h4>
-                        <p class="justified-text text-slate-600">Áp dụng công cụ AI để quản lý tài chính hoặc vận hành startup. Tuyệt đối không để dòng vốn bị tắc nghẽn.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <div class="step-indicator">4</div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 uppercase tracking-wider text-sm mb-2">Giai đoạn 4: Tái đầu tư</h4>
-                        <p class="justified-text text-slate-600">Luôn trích lợi nhuận từ Khởi nghiệp để đắp sang Đầu tư để tạo "kiềng ba chân" vững chắc.</p>
-                    </div>
-                </div>
+            <div class="space-y-6">
+                <p class="justify-text">
+                    <strong>Kết luận:</strong> Tiền bạc chỉ là <strong>Vật ngang giá</strong> của giá trị bạn trao đi. Nếu hiện tại chưa có tiền, nghĩa là "vốn nội tại" của bạn chưa đủ lớn hoặc chưa được thị trường công nhận.
+                </p>
+                <p class="justify-text">
+                    <strong>Bài học:</strong> Đừng khởi nghiệp để "có tiền", hãy khởi nghiệp để <strong>"trở thành người có giá trị"</strong>. Khi bạn trở thành giải pháp ưu việt cho một nỗi đau của thị trường, dòng tiền sẽ tự động được thu hút về phía bạn như một lẽ tất yếu.
+                </p>
             </div>
         </section>
 
-        <!-- Final Quote -->
-        <div class="quote-box text-center">
-            <p class="text-2xl md:text-3xl italic font-serif text-slate-800 px-4 leading-relaxed">
-                "Đừng đi tìm những con số, hãy đi tìm những giá trị ẩn sâu dưới những con số đó. 1 tỷ trong tay một người có Tâm Thức lớn là khởi đầu của một đế chế, 1 tỷ trong tay một người tầm thường chỉ là một giấc mơ ngắn."
+        <hr class="section-divider">
+
+        <!-- SECTION 3: LỘ TRÌNH -->
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl border-b border-stone-200 pb-2 mb-8 uppercase tracking-wide">
+                3. Lộ Trình Hành Động Thực Tế (4 Giai Đoạn)
+            </h2>
+            <ul class="dot-list space-y-4 text-stone-700">
+                <li class="justify-text">
+                    <strong>Giai đoạn 1 - Tích lũy (Tháng 1-3):</strong> Tập trung rèn luyện 01 kỹ năng chuyên sâu mà thị trường đang cần (Viết lách, Marketing, Sales, hoặc Kỹ thuật ứng dụng AI). Tận dụng mọi thời gian để biến mình thành <strong>Chuyên gia</strong> trong lĩnh vực đó.
+                </li>
+                <li class="justify-text">
+                    <strong>Giai đoạn 2 - Thử nghiệm (Tháng 4-6):</strong> Bắt đầu cung cấp dịch vụ miễn phí hoặc giá thấp để lấy <strong>Uy tín (Social Proof)</strong>. Tập trung vào việc tạo ra <strong>Dòng tiền dương</strong> ngay lập tức từ công sức thay vì vốn liếng.
+                </li>
+                <li class="justify-text">
+                    <strong>Giai đoạn 3 - Hệ thống hóa (Tháng 7-12):</strong> Đóng gói quy trình làm việc và xây dựng thương hiệu cá nhân chuyên nghiệp. Sử dụng các công cụ tự động hóa để <strong>giải phóng thời gian</strong>, chuẩn bị cho việc mở rộng quy mô.
+                </li>
+                <li class="justify-text">
+                    <strong>Giai đoạn 4 - Tái đầu tư (Sau 1 năm):</strong> Khi đã có tích lũy, hãy thực hiện bước <strong>Đầu tư</strong> thực sự: Đầu tư vào con người, vào công cụ mạnh hơn, và đa dạng hóa nguồn thu nhập để tạo sự bền vững tài chính.
+                </li>
+            </ul>
+        </section>
+
+        <section class="my-16 py-8 px-4 border-y border-stone-200 text-center">
+            <p class="text-xl md:text-2xl italic font-bold text-stone-800 leading-relaxed">
+                "Khi túi tiền trống rỗng, hãy lấp đầy trí tuệ và khát vọng; tài sản lớn nhất của bạn không nằm trong ngân hàng, mà nằm ở khả năng xoay chuyển giá trị của chính mình."
             </p>
-            <p class="mt-8 text-slate-500 uppercase tracking-widest text-xs">— Chúc bạn quyết định sáng suốt và bản lĩnh! 🥂 —</p>
+        </section>
+
+        <!-- SECTION 4: GỢI Ý TRỰC QUAN -->
+        <aside class="infographic-box rounded-lg shadow-sm">
+            <h2 class="text-xl md:text-2xl mb-6 uppercase tracking-widest text-stone-800 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.364-6.364l-.707-.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M12 11a1 1 0 110-2 1 1 0 010 2z"></path>
+                </svg>
+                Gợi ý Trực Quan
+            </h2>
+            <div class="mb-6 pb-4 border-b border-stone-300">
+                <p class="font-bold text-lg mb-2">Infographic/Mind Map (kim cương trung tâm + 4 vệ tinh)</p>
+                <p class="text-stone-600 italic">Cấu trúc Mind Map: <strong>Mô hình Kim cương Vốn Tự Thân</strong></p>
+            </div>
+            <ul class="bullet-list space-y-3">
+                <li><strong>Trung tâm (Hình Kim cương):</strong> GIÁ TRỊ NHÂN BẢN (The Core Value).</li>
+                <li><strong>Vệ tinh 1 (Tam Thức):</strong> Chuyển đổi tư duy từ "Tìm tiền" sang "Tìm giá trị".</li>
+                <li><strong>Vệ tinh 2 (Hệ Thống):</strong> Bản đồ kỹ năng + Quy trình vận hành cá nhân.</li>
+                <li><strong>Vệ tinh 3 (Thẩm Mỹ):</strong> Nhận diện thương hiệu + Tầm nhìn chiến lược 5 năm.</li>
+                <li><strong>Vệ tinh 4 (Công Cụ):</strong> Công nghệ AI + Mạng lưới kết nối (Networking).</li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <footer class="mt-20 py-10 bg-stone-900 text-stone-400 text-center">
+        <div class="content-wrapper py-0">
+            <p class="text-sm tracking-widest uppercase">Trí Tuệ Toàn Diện | AI Strategic Analysis Framework</p>
+            <div class="mt-4 flex justify-center space-x-4 opacity-50">
+                <div class="h-px w-8 bg-stone-500 my-auto"></div>
+                <span class="text-xs">Intelligence • Balance • Vision • Action</span>
+                <div class="h-px w-8 bg-stone-500 my-auto"></div>
+            </div>
         </div>
+    </footer>
 
-    </div>
+    <script>
+        // Simple micro-animation for reveal on scroll (optional enhancement)
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section, aside');
+            const observerOptions = {
+                threshold: 0.1
+            };
 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
