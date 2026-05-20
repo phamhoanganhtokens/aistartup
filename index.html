@@ -1,293 +1,519 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phân Tích Trí Tuệ Toàn Diện | Giải Bài Toán Khởi Nghiệp</title>
+    <title>AI Startup</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=JetBrains+Mono&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            paper: '#FDFCF8', // Light cream/Off-white
-                            ink: '#1A1A1A',   // Deep charcoal
-                            gold: '#B08D57',  // Muted gold
-                            teal: '#2D5A5A',  // Deep teal
-                            bronze: '#8C5E3C' // Warm bronze
-                        }
+                        cosmic: '#0a0a1f',
+                        neonCyan: '#00f5ff',
+                        neonPurple: '#c026d3',
+                        goldAccent: '#facc15',
+                        glass: 'rgba(17, 25, 40, 0.4)',
                     },
                     fontFamily: {
-                        'serif': ['"Times New Roman"', 'Times', 'serif']
+                        brand: ['Orbitron', 'sans-serif'],
+                        hero: ['"Times New Roman"', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     }
                 }
             }
         }
     </script>
+
     <style>
         body {
-            background-color: #FDFCF8;
-            color: #1A1A1A;
-            line-height: 1.8;
-            font-family: "Times New Roman", Times, serif;
-        }
-        
-        .justified-text {
+            background-color: #0a0a1f;
+            color: #E0E0E0;
+            overflow-x: hidden;
+            font-family: 'Inter', system-ui, sans-serif;
             text-align: justify;
-            text-justify: inter-word;
         }
 
-        .premium-border {
-            border-left: 3px solid #B08D57;
-            padding-left: 1.5rem;
+        .liquid-glass {
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            background-color: rgba(17, 25, 40, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(176, 141, 87, 0.2);
-            transition: all 0.3s ease;
+        .gradient-text {
+            background: linear-gradient(90deg, #00f5ff, #c026d3, #facc15);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: textShine 5s ease infinite;
         }
 
-        .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border-color: rgba(176, 141, 87, 0.5);
+        @keyframes textShine {
+            to { background-position: 200% center; }
         }
 
-        .bullet-point::before {
-            content: '♦';
-            color: #B08D57;
-            margin-right: 12px;
-            font-size: 0.8em;
+        .hero-title {
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+            letter-spacing: -0.05em;
         }
 
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #B08D57, transparent);
-            margin: 4rem 0;
-            opacity: 0.3;
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #0a0a1f; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #2D2D2D; border-radius: 10px; }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, minmax(200px, auto));
+            gap: 1.5rem;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 1024px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { .bento-grid { grid-template-columns: 1fr; } }
+
+        #bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: grayscale(20%) brightness(0.45);
         }
 
-        .animate-fade {
-            animation: fadeIn 1s ease-out forwards;
+        .section-number {
+            position: absolute;
+            top: 30px;
+            left: -60px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            opacity: 0.08;
+            color: #00f5ff;
+            pointer-events: none;
         }
 
-        .step-badge {
-            background: #B08D57;
-            color: white;
-            padding: 2px 12px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .rainbow-text {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400% 400%;
+            animation: rainbow 6s linear infinite;
         }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px; 
+    height: 50px;
+    background: rgba(0, 245, 255, 0.1);
+    border: 1px solid #00f5ff;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 999;
+    color: #00f5ff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#back-to-top:hover {
+    background: #00f5ff;
+    color: #0a0a1f;
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    #back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+        
     </style>
 </head>
-<body class="antialiased">
+<body class="font-body custom-scrollbar">
 
-    <!-- Header Section -->
-    <header class="max-w-4xl mx-auto pt-20 px-6 pb-12 text-center animate-fade">
-        <span class="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Khung Phân Tích Chuyên Sâu</span>
-        <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-            Giải Bài Toán Khởi Nghiệp Với 1 Tỷ Đồng <br>
-            <span class="text-brand-teal italic font-normal text-3xl md:text-4xl mt-2 block italic">Dưới Góc Nhìn "Trí Tuệ Toàn Diện"</span>
-        </h1>
-        <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
-        <p class="text-lg md:text-xl text-gray-700 italic max-w-2xl mx-auto">
-            Khám phá sự giao thoa giữa nguồn lực tài chính và nội lực trí tuệ để kiến tạo một doanh nghiệp bền vững.
-        </p>
-    </header>
+        <!-- Video Background -->
+    <video id="bg-video" autoplay loop muted playsinline>
+        <source src="https://huggingface.co/datasets/phamhoanganh/video/resolve/main/aurora.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay fixed inset-0 bg-[radial-gradient(circle_at_center,rgba(0,245,255,0.08),transparent_70%)] z-[-1] pointer-events-none"></div>
 
-    <main class="max-w-4xl mx-auto px-6 pb-24">
+
+<!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-[100] px-6 py-4 flex justify-between items-center liquid-glass">
+        <div class="flex items-baseline gap-2">
+            <span class="font-brand text-xl font-black tracking-tighter uppercase italic rainbow-text">AI Software Development</span>
+        </div>
         
-        <!-- Pillar Analysis Section -->
-        <section class="mb-16 animate-fade" style="animation-delay: 0.2s;">
-            <h2 class="text-2xl md:text-3xl font-bold text-brand-teal mb-10 flex items-center">
-                <span class="mr-4">1.</span> PHÂN TÍCH 4 TRỤ CỘT TRÍ TUỆ TOÀN DIỆN
-            </h2>
+        <div id="real-time-clock" class="hidden md:block font-mono text-[10px] tracking-[0.3em] text-neonCyan opacity-80">
+            00/00/0000 - 00:00:00
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="https://phamhoanganhtokens.github.io/aisoftwaredevelopment/index.html" target="_blank" class="text-[10px] uppercase tracking-widest hover:text-neonCyan transition-colors opacity-60 hidden sm:block">
+                Cổng Nhà Phát Triển
+            </a>
+            <button onclick="scrollToSection('activation')" 
+                    class="px-5 py-2 border border-white/20 text-[10px] uppercase tracking-widest hover:bg-white hover:text-cosmic transition-all duration-500 font-brand">
+                Khởi Tạo Chiến Lược
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
+        <div class="relative z-10 max-w-6xl w-full text-center lg:text-left">
+            <p class="font-mono text-neonCyan text-xs uppercase tracking-[0.6em] mb-6 animate-pulse">
+                Trạng Thái Hệ Thống: AI Khởi Nghiệp Đang Hoạt Động
+            </p>
+            <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl text-white leading-[0.85] mb-10">
+                <span class="gradient-text">AI Startup</span>
+            </h1>
             
-            <div class="space-y-12">
-                <!-- Sub-pillar 1 -->
-                <div class="premium-border">
-                    <h3 class="text-xl font-bold mb-4 text-brand-bronze uppercase tracking-wide">Tam Thức & Cân Bằng (Mindset & Balance)</h3>
-                    <p class="justified-text text-gray-800 leading-relaxed">
-                        Sở hữu 1 tỷ đồng có thể gây ra trạng thái hưng phấn và ảo tưởng tài chính. Điều này đòi hỏi sự <strong>tĩnh lặng</strong> để phân biệt giữa đột phá đầy khát khao và thực tế khắc nghiệt của thị trường. Sự cân bằng nằm ở việc kiểm soát lòng tham để tránh các mô hình "làm giàu nhanh" và quản trị nỗi sợ để bước ra khỏi vùng an toàn. Tiền bạc là năng lượng; một tâm thức vững vàng chính là bộ điều khiển tối thượng.
-                    </p>
-                </div>
-
-                <!-- Sub-pillar 2 -->
-                <div class="premium-border">
-                    <h3 class="text-xl font-bold mb-4 text-brand-bronze uppercase tracking-wide">Hệ Thống & Hiểu Bản Thân (System & Self-Understanding)</h3>
-                    <p class="justified-text text-gray-800 leading-relaxed">
-                        Ưu tiên hàng đầu là phản chiếu nội tâm: "Tôi là ai và tôi giỏi nhất điều gì?". Việc <strong>thấu hiểu năng lực cốt lõi</strong> dẫn dắt đến việc lựa chọn sân chơi có lợi thế tuyệt đối (như kỹ thuật, giao tiếp, hay tư duy logic). 1 tỷ đồng nên được dùng để xây dựng một <strong>hệ thống vận hành</strong>, không phải chỉ là một "công việc làm thêm". Hãy thiết kế quy trình để doanh nghiệp có thể chạy độc lập, tránh rơi vào "bẫy người chủ".
-                    </p>
-                </div>
-
-                <!-- Sub-pillar 3 -->
-                <div class="premium-border">
-                    <h3 class="text-xl font-bold mb-4 text-brand-bronze uppercase tracking-wide">Gu Thẩm Mỹ & Tầm Nhìn (Aesthetics & Vision)</h3>
-                    <p class="justified-text text-gray-800 leading-relaxed">
-                        Trong một thị trường đông đúc, <strong>gu thẩm mỹ</strong> là bộ lọc khắt khe để định vị thương hiệu. Hình ảnh, bao bì và trải nghiệm khách hàng phải thể hiện sự tinh tế và bản sắc riêng, dù là ngành nghề nào. <strong>Tầm nhìn chiến lược</strong> đòi hỏi việc nhìn xa hơn những trào lưu nhất thời, hướng tới việc xây dựng giá trị bền vững và có khả năng mở rộng trong 3-5 năm tới.
-                    </p>
-                </div>
-
-                <!-- Sub-pillar 4 -->
-                <div class="premium-border">
-                    <h3 class="text-xl font-bold mb-4 text-brand-bronze uppercase tracking-wide">Công Cụ Hỗ Trợ (Supporting Tools)</h3>
-                    <p class="justified-text text-gray-800 leading-relaxed">
-                        Tập trung vào việc biến ý tưởng thành hiện thực thông qua <strong>kỷ luật tài chính</strong>: tuyệt đối không đầu tư kiểu "tất tay" (all-in). Tận dụng công nghệ số (AI, CRM, mini ERP) để tối ưu hóa chi phí vận hành. Công cụ quan trọng nhất chính là <strong>nhân sự</strong>: dùng tiền để mua thời gian và kỹ năng từ những cá nhân phù hợp hơn mình.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Core Conclusion Section -->
-        <section class="mb-16 animate-fade" style="animation-delay: 0.4s;">
-            <h2 class="text-2xl md:text-3xl font-bold text-brand-teal mb-8 flex items-center">
-                <span class="mr-4">2.</span> KẾT LUẬN CỐT LÕI & BÀI HỌC SÂU SẮC
-            </h2>
-            <div class="bg-stone-100 p-8 md:p-12 rounded-lg border border-stone-200">
-                <div class="mb-8">
-                    <h4 class="font-bold text-brand-ink mb-3 text-lg">Kết Luận Cốt Lõi:</h4>
-                    <p class="justified-text italic text-gray-700">
-                        1 tỷ đồng là một <strong>chất xúc tác</strong> khuếch đại những gì đang có. Nó tạo ra sự thịnh vượng nếu đi cùng trí tuệ; nó tan biến nếu đi cùng sự nóng vội. Việc chọn ngành nghề kinh doanh không quan trọng bằng việc <strong>nền tảng cá nhân</strong> đã chuẩn bị sẵn sàng để đón nhận và vận hành nó hay chưa.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-brand-ink mb-3 text-lg">Bài Học Sâu Sắc:</h4>
-                    <p class="justified-text text-gray-700">
-                        Khởi nghiệp không phải là phép tính cộng trừ của đồng vốn, mà là nghệ thuật hài hòa giữa <strong>sự tĩnh lặng nội tại</strong>, <strong>sự sắc bén của tư duy hệ thống</strong>, <strong>sự tinh tế của gu thẩm mỹ</strong> và <strong>sự thực dụng của công cụ</strong>. Hãy bắt đầu từ bên trong trước khi triển khai vốn ra bên ngoài.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Action Roadmap Section -->
-        <section class="mb-16 animate-fade" style="animation-delay: 0.6s;">
-            <h2 class="text-2xl md:text-3xl font-bold text-brand-teal mb-10 flex items-center">
-                <span class="mr-4">3.</span> LỘ TRÌNH HÀNH ĐỘNG
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Phase 1 -->
-                <div class="glass-card p-6 rounded-xl">
-                    <span class="step-badge mb-4 inline-block">Giai đoạn 1</span>
-                    <h4 class="font-bold text-lg mb-2">Khám phá & Định vị</h4>
-                    <p class="text-sm text-brand-gold font-bold mb-3 italic">Chi phí: 0đ</p>
-                    <ul class="space-y-2">
-                        <li class="bullet-point text-sm justified-text">Dành 1-2 tháng đối thoại với bản thân để tìm năng lực cốt lõi.</li>
-                        <li class="bullet-point text-sm justified-text">Nghiên cứu thị trường sâu và chọn ngách phù hợp với thẩm mỹ và thế mạnh.</li>
-                    </ul>
-                </div>
-
-                <!-- Phase 2 -->
-                <div class="glass-card p-6 rounded-xl">
-                    <span class="step-badge mb-4 inline-block">Giai đoạn 2</span>
-                    <h4 class="font-bold text-lg mb-2">Thử nghiệm MVP</h4>
-                    <p class="text-sm text-brand-gold font-bold mb-3 italic">Ngân sách: 150 - 200 triệu</p>
-                    <ul class="space-y-2">
-                        <li class="bullet-point text-sm justified-text">Không đầu tư toàn bộ 1 tỷ ngay từ đầu.</li>
-                        <li class="bullet-point text-sm justified-text">Dùng 15-20% vốn tạo sản phẩm cốt lõi và tung ra thị trường để lấy phản hồi.</li>
-                    </ul>
-                </div>
-
-                <!-- Phase 3 -->
-                <div class="glass-card p-6 rounded-xl">
-                    <span class="step-badge mb-4 inline-block">Giai đoạn 3</span>
-                    <h4 class="font-bold text-lg mb-2">Chuẩn hóa & Thương hiệu</h4>
-                    <p class="text-sm text-brand-gold font-bold mb-3 italic">Ngân sách: 300 triệu</p>
-                    <ul class="space-y-2">
-                        <li class="bullet-point text-sm justified-text">Khi MVP có nhu cầu, đầu tư vào Công cụ hỗ trợ: quy trình tự động, bộ nhận diện chuyên nghiệp.</li>
-                    </ul>
-                </div>
-
-                <!-- Phase 4 -->
-                <div class="glass-card p-6 rounded-xl">
-                    <span class="step-badge mb-4 inline-block">Giai đoạn 4</span>
-                    <h4 class="font-bold text-lg mb-2">Tăng tốc & Dự phòng</h4>
-                    <p class="text-sm text-brand-gold font-bold mb-3 italic">Ngân sách: 500 triệu còn lại</p>
-                    <ul class="space-y-2">
-                        <li class="bullet-point text-sm justified-text">Giữ 50% vốn làm quỹ dự phòng (burn-rate) cho ít nhất 6 tháng vận hành không lợi nhuận.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Conclusion Quote -->
-        <section class="py-16 text-center animate-fade" style="animation-delay: 0.8s;">
-            <div class="max-w-2xl mx-auto border-t border-b border-brand-gold/30 py-10 px-4">
-                <svg class="w-10 h-10 text-brand-gold mx-auto mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V5C14.017 3.34315 15.3601 2 17.017 2H19.017C20.6738 2 22.017 3.34315 22.017 5V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2.01697 21L2.01697 18C2.01697 16.8954 2.9124 16 4.01697 16H7.01697C7.56925 16 8.01697 15.5523 8.01697 15V9C8.01697 8.44772 7.56925 8 7.01697 8H4.01697C2.9124 8 2.01697 7.10457 2.01697 6V5C2.01697 3.34315 3.36012 2 5.01697 2H7.01697C8.67383 2 10.017 3.34315 10.017 5V15C10.017 18.3137 7.33067 21 4.01697 21H2.01697Z" />
-                </svg>
-                <p class="text-2xl italic text-brand-ink leading-relaxed font-medium">
-                    "Kinh doanh không phải là vung tiền để mua lấy hy vọng, mà là dùng trí tuệ toàn diện để kiến tạo nên những giá trị không thể thay thế."
+            <div class="max-w-3xl mx-auto lg:mx-0">
+                <p class="text-xl md:text-2xl font-light text-gray-300 leading-relaxed">
+                    Tuệ trước Tiền • Xây gốc trước khi xây ngọn
+                </p>
+                <p class="mt-6 text-gray-400 leading-relaxed">
+                    Người đồng hành nghiêm túc và thẳng thắn cùng founder Việt Nam trên hành trình xây dựng startup bền vững. 
+                    Không giàu nhanh, không hustle toxic — chỉ có trách nhiệm triệt để và tăng trưởng có hệ thống.
                 </p>
             </div>
-        </section>
 
-        <!-- Infographic Suggestion Block -->
-        <aside class="mt-12 p-8 border-2 border-dashed border-brand-gold/40 rounded-3xl bg-stone-50 animate-fade" style="animation-delay: 1s;">
-            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div class="flex-1">
-                    <h3 class="text-xl font-bold text-brand-gold mb-4 flex items-center">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                        Gợi Ý Trực Quan (Infographic/Mindmap)
-                    </h3>
-                    <p class="text-brand-ink mb-4 font-bold text-lg">Cấu trúc: Kim cương trung tâm + 4 vệ tinh</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
-                            <span><strong>Trung tâm:</strong> 1 Tỷ đồng & Bài toán khởi nghiệp</span>
+            <div class="mt-12 flex flex-col lg:flex-row gap-6 justify-center lg:justify-start">
+                <button onclick="document.getElementById('activation').scrollIntoView({ behavior: 'smooth' })" 
+                        class="px-10 py-5 bg-white text-cosmic font-brand font-black uppercase tracking-widest hover:bg-neonCyan transition-all text-sm">
+                    BẮT ĐẦU HÀNH TRÌNH
+                </button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+            <span class="text-[8px] uppercase tracking-[0.5em] text-white/40">Cuộn để khám phá tư duy</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-neonCyan to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-24 space-y-32">
+
+        <!-- Section 1 -->
+        <section id="mechanism" class="space-y-12 relative">
+            <div class="section-number">01</div>
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-white/10 pb-8">
+                <div>
+                    <h2 class="font-brand text-3xl md:text-5xl font-black uppercase tracking-tighter">Cơ Chế AI Mentor</h2>
+                    <p class="text-neonCyan font-mono text-xs mt-2 uppercase tracking-widest">PHẦN 01 // HỆ THỐNG TƯ DUY CHIẾN LƯỢC</p>
+                </div>
+                <p class="max-w-md text-sm text-gray-400 text-right italic">"Thành công bền vững bắt nguồn từ tư duy đúng và nền tảng nội tại vững chắc."</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="col-span-1 lg:col-span-2 row-span-2 liquid-glass rounded-3xl p-8 flex flex-col justify-between group overflow-hidden relative">
+                    <h3 class="text-2xl font-brand uppercase mb-4">Master Mentor AI</h3>
+                    <p class="text-gray-400 leading-relaxed">Hệ thống AI kết hợp trí tuệ nhân tạo và kinh nghiệm thực chiến từ mentor đã exit, giúp founder xây dựng tư duy, chiến lược và kỷ luật cần thiết.</p>
+                    <div class="mt-12">
+                        <div class="flex justify-between items-end">
+                            <span class="text-4xl font-brand font-black text-neonCyan">100%</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-500">Trách Nhiệm Triệt Để</span>
                         </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-brand-teal"></span>
-                            <span><strong>Vệ tinh 1:</strong> Tam Thức (Tĩnh lặng, Cân bằng)</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-brand-teal"></span>
-                            <span><strong>Vệ tinh 2:</strong> Hệ Thống (Thấu hiểu, Quy trình)</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-brand-teal"></span>
-                            <span><strong>Vệ tinh 3:</strong> Thẩm Mỹ (Bản sắc, Tầm nhìn)</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-brand-teal"></span>
-                            <span><strong>Vệ tinh 4:</strong> Công Cụ (Công nghệ, Nhân sự)</span>
+                        <div class="w-full h-1 bg-white/10 mt-4 overflow-hidden">
+                            <div class="h-full bg-neonCyan w-full"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </aside>
 
+                <div class="col-span-1 lg:col-span-2 liquid-glass rounded-3xl p-8 border-l-4 border-neonPurple">
+                    <h3 class="text-xl font-brand uppercase mb-2">Tuệ Trước Tiền</h3>
+                    <p class="text-sm text-gray-400">Xây dựng con người trước khi xây dựng công ty. Tư duy • Kỷ luật • Nền tảng nội tại.</p>
+                </div>
+
+                <div class="col-span-1 liquid-glass rounded-3xl p-8 flex flex-col justify-center items-center text-center">
+                    <span class="text-3xl font-brand text-white">3-6 THÁNG</span>
+                    <p class="text-[10px] text-gray-500 mt-2">Xây dựng gốc rễ</p>
+                </div>
+
+                <div class="col-span-1 liquid-glass rounded-3xl p-8 flex flex-col justify-center items-center text-center bg-neonPurple/5">
+                    <span class="text-3xl font-brand text-white">12-24 THÁNG</span>
+                    <p class="text-[10px] text-gray-500 mt-2">Scale bền vững</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="activation" class="grid lg:grid-cols-2 gap-16 items-center relative">
+            <div class="section-number">02</div>
+            <div class="space-y-8">
+                <div class="inline-block px-4 py-1 rounded-full border border-neonCyan/30 text-neonCyan text-[10px] font-mono uppercase tracking-[0.2em]">
+                    AI STARTUP MENTOR
+                </div>
+                <h2 class="font-brand text-4xl md:text-5xl font-black uppercase leading-tight">Người Đồng Hành<br><span class="text-neonPurple">Của Founder Việt</span></h2>
+                <p class="text-gray-400 leading-relaxed">
+                    AI Startup v1.0.0 không phải công cụ tạo ý tưởng nhanh. Đây là hệ thống huấn luyện chiến lược giúp bạn xây dựng tư duy đúng, nền tảng vững và lộ trình thực thi có hệ thống.
+                </p>
+                <button onclick="window.open('https://phamhoanganhtokens.github.io/aiweather/halong.html', '_blank')" 
+                        class="flex items-center gap-4 bg-white text-cosmic font-brand font-black px-8 py-4 uppercase text-xs tracking-widest hover:bg-neonCyan transition-colors">
+                    KHỞI TẠO BÁO CÁO CHIẾN LƯỢC →
+                </button>
+            </div>
+
+            <!-- Code Block -->
+            <div class="relative">
+                <div class="code-block rounded-2xl overflow-hidden shadow-2xl shadow-neonPurple/20">
+                    <div class="px-6 py-4 bg-white/5 border-b border-white/10 flex justify-between items-center">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                        </div>
+                        <span class="font-mono text-[10px] uppercase text-gray-500 tracking-widest">AI Startup Mentor</span>
+                    </div>
+                    <pre class="p-6 text-xs md:text-sm font-mono overflow-x-auto text-gray-300 leading-relaxed custom-scrollbar">
+<code><span class="text-neonPurple">const</span> <span class="text-neonCyan">StartupMentorAI</span> = () => {
+  <span class="text-gray-500">// Bước 1: Xây dựng tâm thức &amp; nền tảng nội tại</span>
+  analyzeMindset();
+  identifyZoneOfGenius();
+  
+  <span class="text-gray-500">// Bước 2: Phân tích thị trường &amp; chiến lược</span>
+  reverseEngineering();
+  buildLeanCanvas();
+
+  <span class="text-neonPurple">return</span> (
+    &lt;<span class="text-neonCyan">BaoCaoChienLuoc</span> 
+      tuTuong="Tuệ Trước Tiền"
+      mindset="Growth + Radical Responsibility"
+    /&gt;
+  );
+};</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="experience" class="liquid-glass rounded-[3rem] p-12 relative overflow-hidden">
+            <div class="section-number">03</div>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-brand text-3xl font-bold uppercase tracking-widest mb-4">Công Cụ &amp; Hệ Thống Hỗ Trợ</h2>
+                <p class="text-sm text-gray-400">Những nền tảng giúp founder Việt phát triển tư duy và thực thi hiệu quả</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-neonCyan/50 transition-all cursor-pointer text-center">
+                    <span class="text-4xl mb-4 block">🧠</span>
+                    <p class="font-brand">Tư Duy Chiến Lược</p>
+                    <p class="text-xs text-gray-500">Xây dựng mindset &amp; Zone of Genius</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-neonPurple/50 transition-all cursor-pointer text-center">
+                    <span class="text-4xl mb-4 block">📊</span>
+                    <p class="font-brand">Báo Cáo Chiến Lược</p>
+                    <p class="text-xs text-gray-500">Phân tích toàn diện 10 phần</p>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-goldAccent/50 transition-all cursor-pointer text-center">
+                    <span class="text-4xl mb-4 block">📍</span>
+                    <p class="font-brand">Lộ Trình 24 Tháng</p>
+                    <p class="text-xs text-gray-500">Thực thi có hệ thống</p>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- SCROLL PROGRESS INDICATOR -->
+    <div class="fixed bottom-8 left-8 z-50 hidden md:flex items-center gap-4 font-mono text-xs tracking-[2px] text-white/50">
+        <span class="uppercase">SCROLL</span>
+        <div class="w-28 h-px bg-white/20 relative overflow-hidden">
+            <div id="scrollProgress" class="absolute top-0 left-0 h-full bg-[#00FF9F] transition-all duration-200" style="width: 0%"></div>
+        </div>
+        <span id="scrollPercent" class="w-8 text-right text-[#00FF9F]">00</span>
+        <span class="text-white/30">%</span>
+    </div>
+
+    <!-- Back to Top Button -->
+<button id="back-to-top" 
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+</button>
+
+<!-- ==================== FOOTER ==================== -->
+    <footer id="footer" class="py-20 px-6 border-t border-white/10 relative">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-[#28a745] rounded-xl flex items-center justify-center text-black font-bold text-2xl">AI</div>
+                    <span class="text-3xl font-display tracking-tighter rainbow-text">Startup</span>
+                </div>
+                <p class="text-white/70 max-w-md text-lg leading-relaxed">
+                    Đồng hành cùng founder Việt Nam
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex gap-4 mt-10">
+                    <a href="https://x.com/VGA82017" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.facebook.com/sssssphamhoanganhsssss" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.youtube.com/@thanlongcoins" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://t.me/phamhoanganhtokens" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.688 7.96c-.124.58-.46.72-.936.448L12 14.25l-2.25 2.16c-.248.248-.456.116-.456-.224l.48-3.84 7.008-6.72c.312-.288.168-.432-.432-.144L6.75 13.5l-2.25-.72c-.48-.16-.492-.48.096-.72L17.25 7.5c.336-.144.624.192.312.748z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/phạm-hoàng-anh-51bb3446" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-3">
+                <h4 class="font-display uppercase tracking-widest text-sm mb-6 text-[#28a745]">Khám phá</h4>
+                <ul class="space-y-4 text-white/70">
+                    <li><a href="#mechanism" class="hover:text-[#28a745]">AI Mentor</a></li>
+                    <li><a href="#activation" class="hover:text-[#28a745]">Khởi Tạo Chiến Lược</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="md:col-span-4">
+                <h4 class="font-display uppercase tracking-widest text-sm mb-6 text-[#28a745]">Liên hệ</h4>
+                <ul class="space-y-4 text-white/70">
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#28a745] mt-1">📍</span>
+                        <span>Quán Ngon đường 39, Phường Tân Thuận, Quận 7, TP. Hồ Chí Minh</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-[#28a745]">📞</span>
+                        <span>+84 090 33 44 55 1</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-[#28a745]">✉️</span>
+                        <a href="https://www.phamhoanganhtokens.com" target="_blank" class="text-neonCyan hover:underline">www.phamhoanganhtokens.com</a>
+                    </li>
+                </ul>
+
+                <div class="mt-8">
+                    <h5 class="text-[#28a745] text-sm mb-3">Vị trí trên bản đồ</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d622.5477281090639!2d106.71737901182837!3d10.74384443005467!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f8de8e1c19b%3A0x96021b3d41b2a2ac!2zTmjDoCBIw6FuZyAzOSB8IE5ow6AgSMOgbmcgxJDhurdjIFPhuqNuIFF14bqtbiA3!5e1!3m2!1sen!2sus!4v1778843997201!5m2!1sen!2sus" 
+                            width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-white/10 mt-20 pt-8 text-center text-xs text-white/40">
+            © 2026 AI Startup • Đồng hành cùng founder Việt Nam
+        </div>
+    </footer>
+
     <script>
-        // Simple scroll reveal interaction
-        const observerOptions = {
-            threshold: 0.1
-        };
+        // Real-time Clock
+        function updateClock() {
+            const el = document.getElementById('real-time-clock');
+            const now = new Date();
+            el.textContent = `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} - ${now.toLocaleTimeString('vi-VN',{hour12:false})}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade');
-                }
-            });
-        }, observerOptions);
+// ========== SCROLL PROGRESS - PHIÊN BẢN MƯỢT & CHI TIẾT ==========
+let lastScrollY = 0;
+let ticking = false;
 
-        document.querySelectorAll('section, aside').forEach(el => {
-            observer.observe(el);
-        });
+function updateScrollProgress() {
+    const progressBar = document.getElementById('scrollProgress');
+    const percentText = document.getElementById('scrollPercent');
+
+    if (!progressBar || !percentText) return;
+
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    if (height <= 0) {
+        progressBar.style.width = '0%';
+        percentText.textContent = '00.0';
+        return;
+    }
+
+    let scrolled = (winScroll / height) * 100;
+    scrolled = Math.min(Math.max(scrolled, 0), 100);   // Giới hạn 0-100
+
+    // Cập nhật thanh progress
+    progressBar.style.width = scrolled + '%';
+    
+    // Hiển thị % với 1 số thập phân (chi tiết hơn)
+    const displayPercent = scrolled.toFixed(1);
+    percentText.textContent = displayPercent;
+    
+    lastScrollY = winScroll;
+    ticking = false;
+}
+
+// Sử dụng requestAnimationFrame để mượt tối đa
+function requestTick() {
+    if (!ticking) {
+        requestAnimationFrame(updateScrollProgress);
+        ticking = true;
+    }
+}
+
+// Gắn event
+window.addEventListener('scroll', requestTick, { passive: true });
+
+// Khởi tạo ban đầu
+window.addEventListener('load', () => {
+    updateScrollProgress();
+});
+
+// Cập nhật lại khi resize cửa sổ
+window.addEventListener('resize', () => {
+    updateScrollProgress();
+});
+
+// Back to Top Functionality
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+        backToTopBtn.style.display = 'flex';
+    } else {
+        backToTopBtn.style.display = 'none';
+    }
+});
+        
     </script>
 </body>
 </html>
