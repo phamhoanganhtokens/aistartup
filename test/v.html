@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Startup Ecosystem - phamhoanganhtokens.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        startup: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            emerald: '#10b981',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .copy-feedback {
+            animation: fadeInOut 2s ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(5px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-blue-100">
 
+    <!-- Hero Header -->
+    <header class="gradient-header text-white py-16 px-6 border-b-4 border-blue-600 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center md:text-left">
+            <div class="inline-block px-4 py-1 rounded-full bg-blue-600/30 border border-blue-400/50 text-blue-200 text-sm mb-6 tracking-widest uppercase">
+                Hệ Sinh Thái AI Startup 2026
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-tight">
+                🚀 5 Mẫu Test App Tự Động <br class="hidden md:block">
+                <span class="text-blue-400">AI Startup v1.0.0</span>
+            </h1>
+            <p class="text-slate-400 text-xl font-medium">Ngày: 20/05/2026 | phamhoanganhtokens.com</p>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="max-w-4xl mx-auto py-16 px-6">
+        <div class="border-l-4 border-blue-600 pl-8 py-2">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 uppercase tracking-wide">Giới thiệu hệ thống</h2>
+            <p class="text-lg leading-relaxed text-slate-700 justified-text">
+                Chào mừng các nhà sáng lập đến với tương lai của hệ sinh thái khởi nghiệp Việt Nam năm 2026. Các kịch bản thử nghiệm dưới đây được thiết kế tỉ mỉ để mô phỏng những thách thức thực tế mà các nền tảng trí tuệ nhân tạo (AI) phải giải quyết trong các lĩnh vực trọng yếu: từ nông nghiệp công nghệ cao tại Tây Nguyên đến các giải pháp tài chính số tại Đà Nẵng. Đây là bộ công cụ chuẩn mực giúp tối ưu hóa tương tác giữa người dùng và hệ thống AI, đảm bảo tính chuyên nghiệp, độ chính xác và giá trị thực tiễn cao nhất cho doanh nghiệp của bạn.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content: Scenarios -->
+    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-12">
+
+        <!-- Scenario 1: EdTech -->
+        <article class="glass-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border-t-4 border-blue-600">
+            <div class="p-8 md:p-10">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-sm font-bold tracking-tighter">PHÂN KHÚC: EDTECH</span>
+                    <span class="text-slate-400 text-sm">#001</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-slate-900 leading-snug">1. Khởi nghiệp Giáo dục Cá nhân hóa (Lộ trình ôn thi)</h3>
+                <div class="mb-8">
+                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">Bối cảnh kịch bản:</h4>
+                    <p class="text-slate-700 leading-relaxed justified-text italic border-l-2 border-slate-200 pl-4">
+                        Một học sinh trung học tại tỉnh miền núi vùng sâu, vùng xa sử dụng gia sư AI để lập kế hoạch ôn tập cá nhân hóa cho Kỳ thi tốt nghiệp THPT Quốc gia 2026, đặc biệt tập trung vào các điểm yếu ở môn Toán và Vật lý.
+                    </p>
+                </div>
+                
+                <div class="relative bg-slate-900 rounded-xl p-6 md:p-8 shadow-inner">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-blue-400 text-xs font-mono uppercase tracking-widest">Input Query</span>
+                        <button onclick="copyText('query-1', this)" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-bold active:scale-95">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Sao chép</span>
+                        </button>
+                    </div>
+                    <p id="query-1" class="text-slate-100 text-lg leading-relaxed justified-text leading-relaxed">
+                        Xây dựng lộ trình ôn thi tốt nghiệp THPT Quốc gia 2026 môn Toán và Lý dựa trên kết quả kiểm tra định kỳ của em, tập trung vào các phần kiến thức còn yếu như Hình học không gian và Nhiệt học.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Scenario 2: F&B -->
+        <article class="glass-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border-t-4 border-orange-500">
+            <div class="p-8 md:p-10">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded text-sm font-bold tracking-tighter">PHÂN KHÚC: F&B</span>
+                    <span class="text-slate-400 text-sm">#002</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-slate-900 leading-snug">2. Chuỗi Bánh Mì Công Nghệ (Tối ưu vận hành)</h3>
+                <div class="mb-8">
+                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">Bối cảnh kịch bản:</h4>
+                    <p class="text-slate-700 leading-relaxed justified-text italic border-l-2 border-slate-200 pl-4">
+                        Quản lý chuỗi Bánh mì đang phát triển tại TP.HCM sử dụng AI để tối ưu hóa việc đặt nguyên liệu hàng ngày cho 10 chi nhánh nhằm giảm thiểu lãng phí thực phẩm trong mùa cao điểm nóng ẩm.
+                    </p>
+                </div>
+                
+                <div class="relative bg-slate-900 rounded-xl p-6 md:p-8 shadow-inner">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-orange-400 text-xs font-mono uppercase tracking-widest">Input Query</span>
+                        <button onclick="copyText('query-2', this)" class="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-bold active:scale-95">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Sao chép</span>
+                        </button>
+                    </div>
+                    <p id="query-2" class="text-slate-100 text-lg leading-relaxed justified-text leading-relaxed">
+                        Dựa trên dự báo thời tiết nóng ẩm tuần tới và lịch sử bán hàng năm ngoái, hãy tính toán lượng vỏ bánh mì và pate cần chuẩn bị mỗi ngày cho chi nhánh Quận 1 để giảm tỷ lệ hủy hàng xuống dưới 2%.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Scenario 3: AgriTech -->
+        <article class="glass-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border-t-4 border-emerald-600">
+            <div class="p-8 md:p-10">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded text-sm font-bold tracking-tighter">PHÂN KHÚC: AGRITECH</span>
+                    <span class="text-slate-400 text-sm">#003</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-slate-900 leading-snug">3. Giám sát Nông nghiệp Thông minh (Sầu riêng Tây Nguyên)</h3>
+                <div class="mb-8">
+                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">Bối cảnh kịch bản:</h4>
+                    <p class="text-slate-700 leading-relaxed justified-text italic border-l-2 border-slate-200 pl-4">
+                        Nông dân trồng sầu riêng tại Đắk Lắk sử dụng hệ thống drone chạy bằng AI để giám sát sức khỏe của đất và phát hiện các dấu hiệu sớm của nhiễm nấm trên diện tích 10 hecta.
+                    </p>
+                </div>
+                
+                <div class="relative bg-slate-900 rounded-xl p-6 md:p-8 shadow-inner">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-emerald-400 text-xs font-mono uppercase tracking-widest">Input Query</span>
+                        <button onclick="copyText('query-3', this)" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-bold active:scale-95">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Sao chép</span>
+                        </button>
+                    </div>
+                    <p id="query-3" class="text-slate-100 text-lg leading-relaxed justified-text leading-relaxed">
+                        Phân tích hình ảnh hồng ngoại từ drone sáng nay và xác định các khu vực có dấu hiệu nhiễm nấm Phytophthora trên cây sầu riêng Ri6, đồng thời đề xuất liều lượng phân bón vi sinh phù hợp cho từng lô đất.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Scenario 4: HealthTech -->
+        <article class="glass-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border-t-4 border-rose-500">
+            <div class="p-8 md:p-10">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded text-sm font-bold tracking-tighter">PHÂN KHÚC: HEALTHTECH</span>
+                    <span class="text-slate-400 text-sm">#004</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-slate-900 leading-snug">4. Trợ lý Sức khỏe Cá nhân (Quản lý Huyết áp)</h3>
+                <div class="mb-8">
+                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">Bối cảnh kịch bản:</h4>
+                    <p class="text-slate-700 leading-relaxed justified-text italic border-l-2 border-slate-200 pl-4">
+                        Một bệnh nhân tại Hà Nội bị tăng huyết áp mãn tính sử dụng trợ lý sức khỏe AI địa phương để theo dõi các chỉ số sinh tồn và nhận các điều chỉnh chế độ ăn uống tức thì dựa trên các món ăn truyền thống Việt Nam.
+                    </p>
+                </div>
+                
+                <div class="relative bg-slate-900 rounded-xl p-6 md:p-8 shadow-inner">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-rose-400 text-xs font-mono uppercase tracking-widest">Input Query</span>
+                        <button onclick="copyText('query-4', this)" class="flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-bold active:scale-95">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Sao chép</span>
+                        </button>
+                    </div>
+                    <p id="query-4" class="text-slate-100 text-lg leading-relaxed justified-text leading-relaxed">
+                        Phân tích chỉ số huyết áp tâm thu tăng nhẹ sáng nay của tôi và gợi ý một thực đơn bữa trưa ít muối tại quán cơm bình dân gần văn phòng ở Hoàn Kiếm, tránh các món dưa cà muối.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Scenario 5: FinTech -->
+        <article class="glass-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border-t-4 border-purple-600">
+            <div class="p-8 md:p-10">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded text-sm font-bold tracking-tighter">PHÂN KHÚC: FINTECH</span>
+                    <span class="text-slate-400 text-sm">#005</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-slate-900 leading-snug">5. Tín dụng Tiểu thương (Chấm điểm tín dụng AI)</h3>
+                <div class="mb-8">
+                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">Bối cảnh kịch bản:</h4>
+                    <p class="text-slate-700 leading-relaxed justified-text italic border-l-2 border-slate-200 pl-4">
+                        Một chủ hộ kinh doanh cá thể sạp đồ ăn đường phố tại Đà Nẵng nộp đơn vay vốn lưu động thông qua nền tảng cho vay chạy bằng AI sử dụng lịch sử giao dịch ví điện tử và điểm tín dụng xã hội.
+                    </p>
+                </div>
+                
+                <div class="relative bg-slate-900 rounded-xl p-6 md:p-8 shadow-inner">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-purple-400 text-xs font-mono uppercase tracking-widest">Input Query</span>
+                        <button onclick="copyText('query-5', this)" class="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-bold active:scale-95">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Sao chép</span>
+                        </button>
+                    </div>
+                    <p id="query-5" class="text-slate-100 text-lg leading-relaxed justified-text leading-relaxed">
+                        Đánh giá hạn mức vay tín chấp tối đa cho sạp bún chả của tôi dựa trên lịch sử giao dịch điện tử 6 tháng qua và đề xuất kỳ hạn trả góp linh hoạt để tôi kịp nhập hàng phục vụ mùa du lịch hè 2026.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Call to Action Section (Final Section) -->
+    <section class="bg-slate-900 text-white py-20 px-6 mt-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 italic">"Sáng tạo là chìa khóa, Thực thi là sức mạnh."</h2>
+            <p class="text-xl text-slate-400 mb-10 leading-relaxed justified-text max-w-2xl mx-auto">
+                Những kịch bản trên chỉ là bước khởi đầu cho hành trình chinh phục thị trường AI đầy tiềm năng tại Việt Nam. Hãy tận dụng sức mạnh của dữ liệu và các mô hình ngôn ngữ lớn để kiến tạo những giá trị đột phá. Đội ngũ phamhoanganhtokens.com luôn đồng hành cùng các startup trong việc chuẩn hóa quy trình và tối ưu hóa sản phẩm.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="https://phamhoanganhtokens.com" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1 shadow-lg flex items-center gap-3">
+                    Bắt đầu hành trình ngay
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+                <span class="text-slate-500 font-serif italic">Hỗ trợ Startup Việt 24/7</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function copyText(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            const originalHTML = btn.innerHTML;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Change button style and text
+                btn.classList.remove('bg-blue-600', 'bg-orange-600', 'bg-emerald-600', 'bg-rose-600', 'bg-purple-600');
+                btn.classList.add('bg-accent-emerald');
+                btn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Đã sao chép!</span>
+                `;
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    btn.classList.remove('bg-accent-emerald');
+                    // Add back the original color based on parent context (simplified)
+                    if (elementId.includes('1')) btn.classList.add('bg-blue-600');
+                    else if (elementId.includes('2')) btn.classList.add('bg-orange-600');
+                    else if (elementId.includes('3')) btn.classList.add('bg-emerald-600');
+                    else if (elementId.includes('4')) btn.classList.add('bg-rose-600');
+                    else btn.classList.add('bg-purple-600');
+                    
+                    btn.innerHTML = originalHTML;
+                }, 2000);
+            }).catch(err => {
+                console.error('Lỗi khi sao chép: ', err);
+                alert('Không thể sao chép văn bản.');
+            });
+        }
+    </script>
+</body>
+</html>

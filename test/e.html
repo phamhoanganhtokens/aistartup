@@ -1,1 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Startup v1.0.0 Ecosystem - Vietnam 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0f172a',
+                        offwhite: '#f8fafc',
+                        gold: '#d4af37',
+                        emerald: '#10b981',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif'],
+                        sans: ['"Outfit"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        .serif-text {
+            font-family: 'Times New Roman', serif;
+            text-align: justify;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(15, 23, 42, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+        .query-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #0f172a;
+            position: relative;
+        }
+        .copy-btn {
+            transition: all 0.2s ease;
+        }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="py-12 px-4 sm:px-6">
 
+    <div class="max-w-[900px] mx-auto">
+        <!-- Header Section -->
+        <header class="mb-16 text-center border-b border-slate-200 pb-12">
+            <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4 font-sans tracking-tight">
+                🚀 5 Mẫu Test App Tự Động - AI Startup v1.0.0
+            </h1>
+            <div class="flex items-center justify-center space-x-2 text-emerald-600 font-semibold mb-8">
+                <span class="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <p class="font-sans text-sm uppercase tracking-widest">Ngày hiện tại: 20/05/2026</p>
+            </div>
+            <div class="serif-text text-lg text-slate-700 max-w-2xl mx-auto italic leading-relaxed">
+                Tài liệu này cung cấp các kịch bản thử nghiệm chuyên sâu cho hệ sinh thái AI Startup v1.0.0, được tinh chỉnh cho bối cảnh kinh tế số Việt Nam năm 2026. Các mẫu truy vấn này giúp đánh giá khả năng tích hợp dữ liệu quốc gia, tuân thủ pháp lý và đáp ứng nhu cầu thị trường ngách của các giải pháp công nghệ mới.
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="space-y-12">
+            
+            <!-- Sector 1: F&B -->
+            <section class="glass-card rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 font-sans">01. F&B (Thực phẩm & Đồ uống)</span>
+                </div>
+                <h2 class="text-2xl font-bold text-navy mb-4 font-sans">Hyper-Local "Smart-Menu" Generation for Hybrid Cloud Kitchens</h2>
+                <div class="serif-text text-slate-600 mb-6">
+                    <p class="mb-4 font-bold text-navy">Mục tiêu thử nghiệm:</p>
+                    Kịch bản này kiểm tra khả năng của startup trong việc điều hướng xu hướng "cao cấp hóa" của tầng lớp trung lưu Việt Nam năm 2026. Nó đánh giá khả năng R&D sản phẩm dựa trên AI, tích hợp nguyên liệu địa phương giá trị cao và tương thích kỹ thuật với hạ tầng thành phố thông minh (dữ liệu giao thông HCMC và logistics bằng drone).
+                </div>
+                <div class="query-box p-6 rounded-r-lg mb-4">
+                    <p id="query-1" class="serif-text text-slate-800 leading-relaxed">"I'm expanding my 'Saigon Green' cloud kitchen from District 3 to include a premium dine-in bistro format in District 2. Using real-time 2026 social listening data and the latest AI R&D tools, suggest a 5-item 'Nutri-Fusion' menu that incorporates locally sourced organic swallow's nest (Yến Sào) from Cần Giờ but maintains a food cost under 30%. Also, generate a logistics plan that integrates with the HCMC Smart Traffic Management System for drone delivery within a 5km radius for our 'Premium-at-Home' subscribers."</p>
+                    <div class="flex justify-end mt-4">
+                        <button onclick="copyToClipboard('query-1', this)" class="copy-btn bg-navy text-white px-5 py-2 rounded-full text-sm font-sans font-medium hover:bg-slate-700 flex items-center gap-2">
+                            <span>Sao chép Prompt</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sector 2: EdTech -->
+            <section class="glass-card rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 font-sans">02. EdTech (Công nghệ Giáo dục)</span>
+                </div>
+                <h2 class="text-2xl font-bold text-navy mb-4 font-sans">AI-Driven Career Pivot to High-Tech Manufacturing</h2>
+                <div class="serif-text text-slate-600 mb-6">
+                    <p class="mb-4 font-bold text-navy">Mục tiêu thử nghiệm:</p>
+                    Truy vấn này phản ánh bước chuyển mình chiến lược của Việt Nam sang lĩnh vực bán dẫn và sản xuất công nghệ cao. Nó kiểm tra khả năng tích hợp của nền tảng EdTech với hệ thống định danh số quốc gia (VNeID) và khả năng cung cấp lộ trình nghề nghiệp cá nhân hóa phù hợp với nhu cầu lao động quốc gia.
+                </div>
+                <div class="query-box p-6 rounded-r-lg mb-4">
+                    <p id="query-2" class="serif-text text-slate-800 leading-relaxed">"I've completed my Basic Electronics vocational certificate in Bình Dương. I want to transition into a Junior Technician role at the new semiconductor fab near Saigon Hi-Tech Park (SHTP) that's launching in late 2026. Create a 12-week personalized 'intensive bridge' learning path focusing on photolithography and cleanroom protocols. Integrate my VNeID profile to automatically pull my existing course credits and suggest three government-subsidized 'Micro-Credential' modules that are officially recognized by major tech employers in Vietnam."</p>
+                    <div class="flex justify-end mt-4">
+                        <button onclick="copyToClipboard('query-2', this)" class="copy-btn bg-navy text-white px-5 py-2 rounded-full text-sm font-sans font-medium hover:bg-slate-700 flex items-center gap-2">
+                            <span>Sao chép Prompt</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sector 3: HealthTech -->
+            <section class="glass-card rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 font-sans">03. HealthTech (Công nghệ Y tế)</span>
+                </div>
+                <h2 class="text-2xl font-bold text-navy mb-4 font-sans">Predictive AI Diagnostic Support for Remote Provinces</h2>
+                <div class="serif-text text-slate-600 mb-6">
+                    <p class="mb-4 font-bold text-navy">Mục tiêu thử nghiệm:</p>
+                    Thử nghiệm sự trưởng thành của hệ sinh thái y tế số Việt Nam 2026, tập trung vào mục tiêu áp dụng 100% bệnh án điện tử (EMR) và thực thi các luật về AI và Bảo mật dữ liệu đầu tiên. Nó đánh giá khả năng cung cấp dịch vụ y tế công bằng cho các vùng sâu vùng xa thông qua hệ thống dữ liệu tập trung.
+                </div>
+                <div class="query-box p-6 rounded-r-lg mb-4">
+                    <p id="query-3" class="serif-text text-slate-800 leading-relaxed">"I am a community health worker in Hà Giang province. I’ve just uploaded the Vital Signs and chest X-rays of 50 patients to the National Health Cloud. Following the 2026 AI Law's ethical risk guidelines, perform an initial triage to flag potential early-stage respiratory issues linked to local peak PM2.5 levels. Then, schedule remote tele-consultations with specialists in Hanoi for the high-risk cases, ensuring all data is tagged with their Electronic Medical Records (EMR) and encrypted according to the 2026 Personal Data Protection Law (PDPL)."</p>
+                    <div class="flex justify-end mt-4">
+                        <button onclick="copyToClipboard('query-3', this)" class="copy-btn bg-navy text-white px-5 py-2 rounded-full text-sm font-sans font-medium hover:bg-slate-700 flex items-center gap-2">
+                            <span>Sao chép Prompt</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sector 4: Agritech -->
+            <section class="glass-card rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 font-sans">04. Agritech (Công nghệ Nông nghiệp)</span>
+                </div>
+                <h2 class="text-2xl font-bold text-navy mb-4 font-sans">Climate-Adaptive Precision Farming and Export Traceability</h2>
+                <div class="serif-text text-slate-600 mb-6">
+                    <p class="mb-4 font-bold text-navy">Mục tiêu thử nghiệm:</p>
+                    Kịch bản này giải quyết các xu hướng quan trọng năm 2026 về nông nghiệp chính xác và thích ứng với biến đổi khí hậu tại Tây Nguyên. Nó cũng kiểm tra tư duy logic của startup về truy xuất nguồn gốc bằng Blockchain, yếu tố then chốt cho chiến lược xuất khẩu nông sản của Việt Nam sang EU và Trung Quốc.
+                </div>
+                <div class="query-box p-6 rounded-r-lg mb-4">
+                    <p id="query-4" class="serif-text text-slate-800 leading-relaxed">"Our farming cooperative in Đắk Lắk is preparing for the 2026 durian harvest. IoT soil sensors indicate a 15% moisture drop compared to historical May averages. Adjust our automated irrigation and fertilization schedules to conserve water while maintaining fruit quality for export. Additionally, update our blockchain 'Pro-Trace' ledger with the pesticide-free certificates required for the high-end European and Chinese markets under the latest 2026 EVFTA (EU-Vietnam Free Trade Agreement) compliance standards."</p>
+                    <div class="flex justify-end mt-4">
+                        <button onclick="copyToClipboard('query-4', this)" class="copy-btn bg-navy text-white px-5 py-2 rounded-full text-sm font-sans font-medium hover:bg-slate-700 flex items-center gap-2">
+                            <span>Sao chép Prompt</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sector 5: Fintech -->
+            <section class="glass-card rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 font-sans">05. Fintech (Công nghệ Tài chính)</span>
+                </div>
+                <h2 class="text-2xl font-bold text-navy mb-4 font-sans">Open Banking Embedded Credit for Gig-Economy SMEs</h2>
+                <div class="serif-text text-slate-600 mb-6">
+                    <p class="mb-4 font-bold text-navy">Mục tiêu thử nghiệm:</p>
+                    Mô phỏng trạng thái hoàn thiện của khung pháp lý Fintech Sandbox và hệ sinh thái ngân hàng mở năm 2026. Nó kiểm tra khả năng chấm điểm tín dụng thời gian thực cho những đối tượng "underbanked" trong nền kinh tế gig bằng cách sử dụng dữ liệu thay thế và định danh số quốc gia.
+                </div>
+                <div class="query-box p-6 rounded-r-lg mb-4">
+                    <p id="query-5" class="serif-text text-slate-800 leading-relaxed">"I sell artisan coffee tools through a live-commerce channel in Hanoi. To handle a spike in viral orders, I need to double my inventory within 48 hours. Using the 2026 Fintech Regulatory Sandbox APIs, please access my multi-wallet transaction history (MoMo and ZaloPay) and my verified VNeID credit score to offer an 'Instant SME Growth' micro-loan of 500 million VND. The repayment should be dynamically adjusted based on my real-time digital sales revenue over the next 30 days."</p>
+                    <div class="flex justify-end mt-4">
+                        <button onclick="copyToClipboard('query-5', this)" class="copy-btn bg-navy text-white px-5 py-2 rounded-full text-sm font-sans font-medium hover:bg-slate-700 flex items-center gap-2">
+                            <span>Sao chép Prompt</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- CTA Section -->
+        <section class="mt-20 text-center bg-navy text-white rounded-3xl p-12 shadow-xl">
+            <h3 class="text-2xl font-bold font-sans mb-4">Sẵn sàng đưa Startup của bạn vươn tầm cao mới?</h3>
+            <p class="serif-text text-slate-300 mb-8 max-w-xl mx-auto text-center italic">
+                Những mẫu thử nghiệm này chỉ là bước khởi đầu cho hành trình chinh phục thị trường 2026 đầy tiềm năng. Hãy kết nối với chúng tôi để xây dựng những giải pháp đột phá.
+            </p>
+            <a href="www.phamhoanganhtokens.com" target="_blank" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-navy font-bold py-4 px-10 rounded-full font-sans transition-all transform hover:scale-105 active:scale-95 shadow-lg">
+                Khám phá ngay tại phamhoanganhtokens.com
+            </a>
+        </section>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<span>Đã sao chép!</span>';
+                btn.classList.remove('bg-navy');
+                btn.classList.add('bg-emerald-600');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('bg-emerald-600');
+                    btn.classList.add('bg-navy');
+                }, 2000);
+            }).catch(err => {
+                console.error('Lỗi khi sao chép: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
